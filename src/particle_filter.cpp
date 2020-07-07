@@ -30,7 +30,40 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
    * NOTE: Consult particle_filter.h for more information about this method 
    *   (and others in this file).
    */
-  num_particles = 0;  // TODO: Set the number of particles
+  num_particles = 100;  // Done: Set the number of particles
+
+  //if the filter already init then it's done
+  if (filter_init) {
+    return;
+  }
+  /**
+  *Extrct Stdrd Dvns
+  */
+  double std_x    = std[0];
+  double std_y    = std[1];
+  double std_theta= std[2];
+  /**
+  *Creat Nrml Dist.
+  */
+  normal_distribution<double> dist_x(x, std_x);
+  normal_distribution<double> dist_y(y, std_y);
+  normal_distribution<double> dist_theta(theta, std_theta);
+  /**
+  * Gnrt Partcls w Nrml Dist. GPS Vls
+  */
+  for (int i = 0; i < num_particles; i++) {
+    Particle particle;
+    particle.id     = i;
+    particle.x      = dist_x(gen);
+    particle.y      = dist_y(gen);
+    particle.theta  = dist_theta(gen);
+    particle.weight = 1.0;
+    particles.push_back(particle);
+  }
+  /**
+  *  Fltr init.ed
+  */
+  filter_init = true;
 
 }
 
