@@ -225,7 +225,15 @@ void ParticleFilter::resample() {
    * NOTE: You may find std::discrete_distribution helpful here.
    *   http://en.cppreference.com/w/cpp/numeric/random/discrete_distribution
    */
-
+  vector<double> weights;
+  double max_weight = numeric_limits<double>::min();
+  for(int i = 0; i<num_particles; i++){
+    weights.push_back(particles[i].weight);
+    if (particles[i].weight > maxWeight){
+      max_weight = particles[i].weight;
+    }
+  }
+  
 }
 
 void ParticleFilter::SetAssociations(Particle& particle, 
