@@ -76,6 +76,12 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
    *  http://en.cppreference.com/w/cpp/numeric/random/normal_distribution
    *  http://www.cplusplus.com/reference/random/default_random_engine/
    */
+  /**
+  *Extrct Stdrd Dvns
+  */
+  double std_x    = std[0];
+  double std_y    = std[1];
+  double std_theta= std[2];
 
 }
 
