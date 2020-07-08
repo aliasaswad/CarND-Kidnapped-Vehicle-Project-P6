@@ -79,9 +79,9 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
   /**
   *Extrct Stdrd Dvns
   */
-  double std_x    = std[0];
-  double std_y    = std[1];
-  double std_theta= std[2];
+  double std_x     = std_pos[0];
+  double std_y     = std_pos[1];
+  double std_theta = std_pos[2];
   /**
   *Creat Nrml Dist.
   */
