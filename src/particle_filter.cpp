@@ -82,6 +82,12 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
   double std_x    = std[0];
   double std_y    = std[1];
   double std_theta= std[2];
+  /**
+  *Creat Nrml Dist.
+  */
+  normal_distribution<double> dist_x(0, std_x);
+  normal_distribution<double> dist_y(0, std_y);
+  normal_distribution<double> dist_theta(0, std_theta);
 
 }
 
