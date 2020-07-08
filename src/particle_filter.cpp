@@ -225,6 +225,7 @@ void ParticleFilter::resample() {
    * NOTE: You may find std::discrete_distribution helpful here.
    *   http://en.cppreference.com/w/cpp/numeric/random/discrete_distribution
    */
+  // Calc max weight
   vector<double> weights;
   double max_weight = numeric_limits<double>::min();
   for(int i = 0; i<num_particles; i++){
@@ -233,7 +234,23 @@ void ParticleFilter::resample() {
       max_weight = particles[i].weight;
     }
   }
-  
+  // Cret dist.
+  uniform_real_distribution<double> distDouble(0.0, max_weight);
+  uniform_int_distribution<int> distInt(0, num_particles - 1);
+  // Gen indx
+  int index = distInt(gen);
+  double beta = 0.0;
+  // Whel
+  vector<Particle> resampled_particles;
+  for(int i = 0; i<num_particles; i++){
+    beta += distDouble(gen) * 2.0;
+    while( beta > weights[index]) {
+      beta -= weights[index];
+      index = (index + 1) % num_particles;
+    }
+    resampled_particles.push_back(particles[index]);
+  }
+  particles = resampled_particles;
 }
 
 void ParticleFilter::SetAssociations(Particle& particle, 
@@ -245,6 +262,9 @@ void ParticleFilter::SetAssociations(Particle& particle,
   // associations: The landmark id that goes along with each listed association
   // sense_x: the associations x mapping already converted to world coordinates
   // sense_y: the associations y mapping already converted to world coordinates
+  
+
+
   particle.associations= associations;
   particle.sense_x = sense_x;
   particle.sense_y = sense_y;
