@@ -184,6 +184,38 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
       double yy = sin(theta)*observations[j].x + cos(theta)*observations[j].y + y;
       mapped_obsrv.push_back(LandmarkObs{observations[j].id, xx, yy});
     }
+    // Obsrv assoc. to landmark
+    dataAssociation(in_range_landmarks, mapped_obsrv);
+    //Set weights
+    particles[i].weight = 1.0;
+    // Calc. weights
+    for(unsigned int j = 0; j<mapped_obsrv.size(); j++){
+      double observ_x = mapped_obsrv[j].x;
+      double observ_y = mapped_obsrv[j].y;
+      int landmark_id = mapped_obsrv[j].id;
+      double landmark_x, landmark_y;
+      unsigned int k = 0;
+      unsigned int number_landmarks = in_range_landmarks.size();
+      bool found = false;
+      while( !found && k < number_landmarks ) {
+        if ( in_range_landmarks[k].id == landmark_id) {
+          found = true;
+          landmark_x = in_range_landmarks[k].x;
+          landmark_y = in_range_landmarks[k].y;
+        }
+        k++;
+      }
+      // Calc. weight
+      double d_x = observ_x - landmark_x;
+      double d_y = observ_y - landmark_y;
+      double weight = (1/(2*M_PI*std_landmark_range*std_landmark_bearing)) * exp(-( d_x*d_x/(2*std_landmark_range*std_landmark_range) + (d_y*d_y/(2*std_landmark_bearing*std_landmark_bearing))));
+      if (weight == 0) {
+        particles[i].weight *= EPS;
+      } else {
+        particles[i].weight *= weight;
+      }
+    }
+  }
 }
 
 void ParticleFilter::resample() {
