@@ -119,7 +119,27 @@ void ParticleFilter::dataAssociation(vector<LandmarkObs> predicted,
    *   probably find it useful to implement this method and use it as a helper 
    *   during the updateWeights phase.
    */
+  unsigned int number_obsrv = observations.size();
+  unsigned int number_predc = predicted.size();
 
+  for (unsigned int i = 0; i<number_obsrv; i++) {
+    // Init min dist with max size
+    double min_dist = numeric_limits<double>::max();
+    // Init found map
+    int map_id = -1;
+
+    for (unsigned int j = 0; j<number_predc; j++) {
+      double x_dist = observations[i].x - predicted[j].x;
+      double y_dist = observations[i].y - predicted[j].y;
+      double dist = x_dist * x_dist + y_dist * y_dist;
+      // Check the dist to store the id and update min
+      if (dist < min_dist) {
+        min_dist = dist;
+        map_id = predicted[j].id;
+      }
+    }
+    observations[i].id = map_id;
+  }
 }
 
 void ParticleFilter::updateWeights(double sensor_range, double std_landmark[], 
