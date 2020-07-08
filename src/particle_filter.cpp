@@ -253,7 +253,7 @@ void ParticleFilter::resample() {
   particles = resampled_particles;
 }
 
-void ParticleFilter::SetAssociations(Particle& particle, 
+Particle ParticleFilter::SetAssociations(Particle& particle, 
                                      const vector<int>& associations, 
                                      const vector<double>& sense_x, 
                                      const vector<double>& sense_y) {
@@ -263,11 +263,14 @@ void ParticleFilter::SetAssociations(Particle& particle,
   // sense_x: the associations x mapping already converted to world coordinates
   // sense_y: the associations y mapping already converted to world coordinates
   
-
-
+  //Reset assoc. and then set
+  particle.associations.clear();
+  particle.sense_x.clear();
+  particle.sense_y.clear();
   particle.associations= associations;
   particle.sense_x = sense_x;
   particle.sense_y = sense_y;
+  return particle;
 }
 
 string ParticleFilter::getAssociations(Particle best) {
@@ -279,18 +282,37 @@ string ParticleFilter::getAssociations(Particle best) {
   return s;
 }
 
-string ParticleFilter::getSenseCoord(Particle best, string coord) {
-  vector<double> v;
-
-  if (coord == "X") {
-    v = best.sense_x;
-  } else {
-    v = best.sense_y;
-  }
-
-  std::stringstream ss;
-  copy(v.begin(), v.end(), std::ostream_iterator<float>(ss, " "));
-  string s = ss.str();
-  s = s.substr(0, s.length()-1);  // get rid of the trailing space
-  return s;
+string ParticleFilter::getSense_x(Particle best)
+{
+  vector<double> v = best.sense_x;
+  stringstream ss;
+    copy( v.begin(), v.end(), ostream_iterator<float>(ss, " "));
+    string s = ss.str();
+    s = s.substr(0, s.length()-1);  // get rid of the trailing space
+    return s;
 }
+string ParticleFilter::getSense_y(Particle best)
+{
+  vector<double> v = best.sense_y;
+  stringstream ss;
+    copy( v.begin(), v.end(), ostream_iterator<float>(ss, " "));
+    string s = ss.str();
+    s = s.substr(0, s.length()-1);  // get rid of the trailing space
+    return s;
+}
+
+// string ParticleFilter::getSenseCoord(Particle best, string coord) {
+//   vector<double> v;
+
+//   if (coord == "X") {
+//     v = best.sense_x;
+//   } else {
+//     v = best.sense_y;
+//   }
+
+//   std::stringstream ss;
+//   copy(v.begin(), v.end(), std::ostream_iterator<float>(ss, " "));
+//   string s = ss.str();
+//   s = s.substr(0, s.length()-1);  // get rid of the trailing space
+//   return s;
+// }

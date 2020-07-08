@@ -34,6 +34,8 @@ class ParticleFilter {
   // Destructor
   ~ParticleFilter() {}
 
+  std::vector<Particle> particles;
+
   /**
    * init Initializes particle filter by initializing particles to Gaussian
    *   distribution around first position and all the weights to 1.
@@ -91,22 +93,19 @@ class ParticleFilter {
    * This can be a very useful debugging tool to make sure transformations 
    *   are correct and assocations correctly connected
    */
-  void SetAssociations(Particle& particle, const std::vector<int>& associations,
+  Particle SetAssociations(Particle& particle, const std::vector<int>& associations,
                        const std::vector<double>& sense_x, 
                        const std::vector<double>& sense_y);
 
+  std::string getAssociations(Particle best);
+  std::string getSense_x(Particle best);
+  std::string getSense_y(Particle best);
   /**
    * initialized Returns whether particle filter is initialized yet or not.
    */
   const bool initialized() const {
     return is_initialized;
   }
-
-  /**
-   * Used for obtaining debugging information related to particles.
-   */
-  std::string getAssociations(Particle best);
-  std::string getSenseCoord(Particle best, std::string coord);
 
   // Set of current particles
   std::vector<Particle> particles;
@@ -119,7 +118,9 @@ class ParticleFilter {
   bool is_initialized;
   
   // Vector of weights of all particles
-  std::vector<double> weights; 
+  std::vector<double> weights;
+
+  std::default_random_engine gen;
 };
 
 #endif  // PARTICLE_FILTER_H_
