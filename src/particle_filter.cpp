@@ -285,20 +285,20 @@ string ParticleFilter::getAssociations(Particle best) {
 string ParticleFilter::getSense_x(Particle best)
 {
   vector<double> v = best.sense_x;
-  stringstream ss;
-    copy( v.begin(), v.end(), ostream_iterator<float>(ss, " "));
-    string s = ss.str();
-    s = s.substr(0, s.length()-1);  // get rid of the trailing space
-    return s;
+  std::stringstream ss;
+  copy( v.begin(), v.end(), ostream_iterator<float>(ss, " "));
+  string s = ss.str();
+  s = s.substr(0, s.length()-1);  // get rid of the trailing space
+  return s;
 }
 string ParticleFilter::getSense_y(Particle best)
 {
   vector<double> v = best.sense_y;
-  stringstream ss;
-    copy( v.begin(), v.end(), ostream_iterator<float>(ss, " "));
-    string s = ss.str();
-    s = s.substr(0, s.length()-1);  // get rid of the trailing space
-    return s;
+  std::stringstream ss;
+  copy( v.begin(), v.end(), ostream_iterator<float>(ss, " "));
+  string s = ss.str();
+  s = s.substr(0, s.length()-1);  // get rid of the trailing space
+  return s;
 }
 
 // string ParticleFilter::getSenseCoord(Particle best, string coord) {
