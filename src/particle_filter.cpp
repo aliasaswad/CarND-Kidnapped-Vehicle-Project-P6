@@ -88,7 +88,25 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
   normal_distribution<double> dist_x(0, std_x);
   normal_distribution<double> dist_y(0, std_y);
   normal_distribution<double> dist_theta(0, std_theta);
-
+  /**
+  * Calc. the state
+  */
+  for(int i = 0; i < num_particles; i++) {
+    double theta = particles[i].theta;
+    // Check if yaw not change
+    if(fabs(yaw_rate) < EPS) { 
+      particles[i].x += velocity * delta_t * cos(theta);
+      particles[i].y += velocity * delta_t * sin(theta);
+    }else{
+      particles[i].x += velocity / yaw_rate * (sin(theta + yaw_rate * delta_t) - sin( theta));
+      particles[i].y += velocity / yaw_rate * (cos(theta) - cos(theta + yaw_rate * delta_t));
+      particles[i].theta += yaw_rate * delta_t;
+    }
+    // Adding noise
+    particles[i].x     += dist_x(gen);
+    particles[i].y     += dist_y(gen);
+    particles[i].theta += dist_theta(gen);
+  }
 }
 
 void ParticleFilter::dataAssociation(vector<LandmarkObs> predicted, 
