@@ -160,14 +160,14 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
    */
   double std_landmark_range   = std_landmark[0];
   double std_landmark_bearing = std_landmark[1];
-  for (int i = 0; i < num_particles; i++) {
+  for (int i = 0; i < num_particles; i++){
     double x     = particles[i].x;
     double y     = particles[i].y;
     double theta = particles[i].theta;
     // Find landmarks in particle's range.
     double sensor_range_2 = sensor_range * sensor_range;
     vector<LandmarkObs> in_range_landmarks;
-    for(unsigned int j = 0; j<map_landmarks.landmark_list.size(); j++) {
+    for(unsigned int j = 0; j<map_landmarks.landmark_list.size(); j++){
       float landmark_x = map_landmarks.landmark_list[j].x_f;
       float landmark_y = map_landmarks.landmark_list[j].y_f;
       int id = map_landmarks.landmark_list[j].id_i;
@@ -176,6 +176,13 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
       if (dx*dx+dy*dy <= sensor_range_2) {
         in_range_landmarks.push_back(LandmarkObs{id, landmark_x, landmark_y});
       }
+    }
+    // Trans obsrv coord.
+    vector<LandmarkObs> mapped_obsrv;
+    for(unsigned int j = 0; j<observations.size(); j++){
+      double xx = cos(theta)*observations[j].x - sin(theta)*observations[j].y + x;
+      double yy = sin(theta)*observations[j].x + cos(theta)*observations[j].y + y;
+      mapped_obsrv.push_back(LandmarkObs{observations[j].id, xx, yy});
     }
 }
 
