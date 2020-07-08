@@ -25,7 +25,10 @@ struct Particle {
 };
 
 
-class ParticleFilter {  
+class ParticleFilter { 
+
+ std::default_random_engine gen;
+ 
  public:
   // Constructor
   // @param num_particles Number of particles
@@ -34,7 +37,6 @@ class ParticleFilter {
   // Destructor
   ~ParticleFilter() {}
 
-  std::vector<Particle> particles;
 
   /**
    * init Initializes particle filter by initializing particles to Gaussian
@@ -120,7 +122,7 @@ class ParticleFilter {
   // Vector of weights of all particles
   std::vector<double> weights;
 
-  std::default_random_engine gen;
+  
 };
 
 #endif  // PARTICLE_FILTER_H_

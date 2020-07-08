@@ -33,7 +33,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
   num_particles = 100;  // Done: Set the number of particles
 
   //if the filter already init then it's done
-  if (filter_init) {
+  if (is_initialized) {
     return;
   }
   /**
@@ -61,9 +61,9 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
     particles.push_back(particle);
   }
   /**
-  *  Fltr init.ed
+  *  Fltr is_initialized
   */
-  filter_init = true;
+  is_initialized = true;
 
 }
 
