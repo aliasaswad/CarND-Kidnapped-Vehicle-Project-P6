@@ -45,28 +45,6 @@ The particular project implementation was done on **Linux OS** and the rest of t
 
 In order to install the necessary libraries, from the project repository directory run the script either [install-ubuntu.sh](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/install-ubuntu.sh)(for Mac user).
 
-## Running the Code
-This repository includes two files that can be used to set up and install uWebSocketIO for either Linux or Mac systems. For windows you can use either Docker, VMware, or even Windows 10 Bash on Ubuntu to install uWebSocketIO.
-
-Once the install for uWebSocketIO is complete, the main program can be built and ran by doing the following from the project top directory.
-
-1. Create a build directory: `mkdir build && cd build`
-2. Compile:`cmake ..`
-3. `make`, this will create executable
-    -  `particle_filter`, which is our implementation
-4. Finally, run `./particle_filter`
-
-
-Alternatively some scripts have been included to streamline this process, these can be leveraged by executing the following in the top directory of the project:
-```
-$ ./clean.sh
-$ ./build.sh
-$ ./run.sh
-```
-
-Tips for setting up your environment can be found [here](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/23d376c7-0195-4276-bdf0-e02f1f3c665d)
-
-
 # Implementing the Particle Filter
 The directory structure of this repository is as follows:
 
@@ -92,7 +70,7 @@ root
 ```
 
 
-## Inputs to the Particle Filter
+### Inputs to the Particle Filter
 You can find the inputs to the particle filter in the `data` directory.
 
 #### The Map*
@@ -100,6 +78,43 @@ You can find the inputs to the particle filter in the `data` directory.
 1. x position
 2. y position
 3. landmark id
+
+
+## Running the Code
+This repository includes two files that can be used to set up and install uWebSocketIO for either Linux or Mac systems. For windows you can use either Docker, VMware, or even Windows 10 Bash on Ubuntu to install uWebSocketIO. Tips for setting up your environment can be found [here](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/23d376c7-0195-4276-bdf0-e02f1f3c665d)
+
+Once the install for uWebSocketIO is complete, the main program can be built and ran by doing the following from the project top directory.
+
+1. Create a build directory: `mkdir build && cd build`
+2. Compile:`cmake ..`
+3. `make`, this will create executable
+    -  `particle_filter`, which is our implementation
+4. Finally, run `./particle_filter`
+
+
+Alternatively some scripts have been included to streamline this process, these can be leveraged by executing the following in the top directory of the project:
+```
+$ ./clean.sh
+$ ./build.sh
+$ ./run.sh
+```
+To run the particle filter we need to run both `./run.sh` using the terminal and the simulator. The output should be like:
+
+`Listening to port 4567
+`
+
+Which means that the implemtation code now connected to the simulator right away.
+Run the simulator shoud show the below image:
+
+<img src="./results/simulator_main.png" width="800" height="400" align="center"/>
+
+Using the right arrow, to choose the Kidnapped Vehicle project as shown below:
+
+<img src="./results/simulator_kidnapped_vehicle.png" width="800" height="400" align="center"/>
+
+By clicking on "Select" icon, the simulator for the Kidnapped project will start and the Particle Filter informs it is connected `Connected!!!`.
+
+<img src="./results/simulator_kidnapped_vehicle1.png" width="800" height="400" align="center"/>
 
 
 ## Success Criteria
