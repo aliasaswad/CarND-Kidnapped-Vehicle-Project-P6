@@ -1,4 +1,4 @@
-# Extended Kalman Filter Project
+# CarND-Kidnapped-Vehicle Project
 
 <!-- Self-Driving Car Engineer Nanodegree Program -->
 
