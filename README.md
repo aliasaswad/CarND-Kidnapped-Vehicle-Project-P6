@@ -12,9 +12,9 @@ This repository contains all the code for the kidnapped vehicle project. The pro
 
 
 ## Project Introduction
-Your robot has been kidnapped and transported to a new location! Luckily it has a map of this location, a (noisy) GPS estimate of its initial location, and lots of (noisy) sensor and control data.
+A robot has been kidnapped and transported to a new location! Luckily it has a map of this location, a (noisy) GPS estimate of its initial location, and lots of (noisy) sensor and control data.
 
-In this project you will implement a 2 dimensional particle filter in C++. Your particle filter will be given a map and some initial localization information (analogous to what a GPS would provide). At each time step your filter will also get observation and control data.
+In this project implemented a 2 dimensional particle filter in C++. The particle filter given a map and some initial localization information (analogous to what a GPS would provide). The particle filter get observation and control data at each time step.
 
 ## Important Dependencies
 
@@ -30,7 +30,7 @@ The minimum project dependency versions are:
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
-* Udacity's simulator
+* Udacity's Term 2 [simulator](https://github.com/udacity/self-driving-car-sim/releases)
 
 
 #### uWebSocketIO Starter Guide
@@ -42,11 +42,10 @@ This repository includes two files that can be used to set up and install [uWebS
 
 
 The particular project implementation was done on **Linux OS** and the rest of this documentation will be focused on Linux OS. The project also support Mac operating system.
+
 In order to install the necessary libraries, from the project repository directory run the script either [install-ubuntu.sh](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/install-ubuntu.sh)(for Mac user).
 
 ## Running the Code
-This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases)
-
 This repository includes two files that can be used to set up and install uWebSocketIO for either Linux or Mac systems. For windows you can use either Docker, VMware, or even Windows 10 Bash on Ubuntu to install uWebSocketIO.
 
 Once the install for uWebSocketIO is complete, the main program can be built and ran by doing the following from the project top directory.
