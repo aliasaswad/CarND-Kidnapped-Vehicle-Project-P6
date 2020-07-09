@@ -124,9 +124,9 @@ By clicking on "Start" button, the vehicle starts moving, and the blue circle (t
 The implemented particle filter passed the current grading code in the simulator and the simulator output says:
 
 ```
-Success! Your particle filter passed! according to:
-
+Success! Your particle filter passed!
 ```
+
 The particle filter implementation passed both: 
 
 1. **Accuracy**: The particle filter localize vehicle position and yaw to within the values specified in the parameters `max_translation_error` and `max_yaw_error` in `src/main.cpp`.
