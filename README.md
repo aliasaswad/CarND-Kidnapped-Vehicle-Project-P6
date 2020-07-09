@@ -49,12 +49,13 @@ In order to install the necessary libraries, from the project repository directo
 This repository includes two files that can be used to set up and install uWebSocketIO for either Linux or Mac systems. For windows you can use either Docker, VMware, or even Windows 10 Bash on Ubuntu to install uWebSocketIO.
 
 Once the install for uWebSocketIO is complete, the main program can be built and ran by doing the following from the project top directory.
-`
-$ mkdir build && cd build
-$ cmake ..
-$ make
-$ ./particle_filter
-`
+
+1. Create a build directory: `mkdir build && cd build`
+2. Compile:`cmake ..`
+3. `make`, this will create executable
+    -  `particle_filter`, which is our implementation
+4. Finally, run `./particle_filter`
+
 
 Alternatively some scripts have been included to streamline this process, these can be leveraged by executing the following in the top directory of the project:
 `
