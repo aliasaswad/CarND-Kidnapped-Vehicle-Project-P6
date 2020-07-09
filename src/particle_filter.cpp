@@ -18,8 +18,12 @@
 
 #include "helper_functions.h"
 
+#define EPS 0.00001
+
 using std::string;
 using std::vector;
+
+using namespace std;
 
 void ParticleFilter::init(double x, double y, double theta, double std[]) {
   /**
@@ -45,9 +49,9 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
   /**
   *Creat Nrml Dist.
   */
-  normal_distribution<double> dist_x(x, std_x);
-  normal_distribution<double> dist_y(y, std_y);
-  normal_distribution<double> dist_theta(theta, std_theta);
+  std::normal_distribution<double> dist_x(x, std_x);
+  std::normal_distribution<double> dist_y(y, std_y);
+  std::normal_distribution<double> dist_theta(theta, std_theta);
   /**
   * Gnrt Partcls w Nrml Dist. GPS Vls
   */
@@ -85,9 +89,9 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
   /**
   *Creat Nrml Dist.
   */
-  normal_distribution<double> dist_x(0, std_x);
-  normal_distribution<double> dist_y(0, std_y);
-  normal_distribution<double> dist_theta(0, std_theta);
+  std::normal_distribution<double> dist_x(0, std_x);
+  std::normal_distribution<double> dist_y(0, std_y);
+  std::normal_distribution<double> dist_theta(0, std_theta);
   /**
   * Calc. the state
   */
@@ -103,8 +107,8 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
       particles[i].theta += yaw_rate * delta_t;
     }
     // Adding noise
-    particles[i].x     += dist_x(gen);
-    particles[i].y     += dist_y(gen);
+    particles[i].x += dist_x(gen);
+    particles[i].y += dist_y(gen);
     particles[i].theta += dist_theta(gen);
   }
 }
@@ -230,7 +234,7 @@ void ParticleFilter::resample() {
   double max_weight = numeric_limits<double>::min();
   for(int i = 0; i<num_particles; i++){
     weights.push_back(particles[i].weight);
-    if (particles[i].weight > maxWeight){
+    if (particles[i].weight > max_weight){
       max_weight = particles[i].weight;
     }
   }
