@@ -4,7 +4,7 @@
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-<img src="./results/particle_filter_result1.gif" width="800" height="400" align="center"/>
+<img src="./results/particle_filter_result1.gif" width="800" height="500" align="center"/>
 
 
 # Overview
