@@ -100,7 +100,7 @@ int main() {
           std::istream_iterator<float>(),
           std::back_inserter(y_sense));
 
-          for (int i = 0; i < x_sense.size(); ++i) {
+          for (int i=0; i<x_sense.size(); ++i) {
             LandmarkObs obs;
             obs.x = x_sense[i];
             obs.y = y_sense[i];
@@ -138,8 +138,8 @@ int main() {
           // Optional message data used for debugging particle's sensing 
           //   and associations
           msgJson["best_particle_associations"] = pf.getAssociations(best_particle);
-          msgJson["best_particle_sense_x"] = pf.getSenseX(best_particle);
-          msgJson["best_particle_sense_y"] = pf.getSenseY(best_particle);
+          msgJson["best_particle_sense_x"] = pf.getSense_x(best_particle);
+          msgJson["best_particle_sense_y"] = pf.getSense_y(best_particle);
 
           auto msg = "42[\"best_particle\"," + msgJson.dump() + "]";
           // std::cout << msg << std::endl;
