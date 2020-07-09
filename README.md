@@ -68,7 +68,7 @@ root
     |   particle_filter.cpp
     |   particle_filter.h
 ```
-
+The Particle Filter is implemented in [src/particle_filter.cpp](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp). The **Initialization** part for the filter is implemented at `ParticleFilter::init` code_line [28 to 66](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp#L28-#L66).
 
 ### Inputs to the Particle Filter
 You can find the inputs to the particle filter in the `data` directory.
@@ -112,12 +112,17 @@ Using the right arrow, to choose the Kidnapped Vehicle project as shown below:
 
 <img src="./results/simulator_kidnapped_vehicle.png" width="800" height="600" align="center"/>
 
-By clicking on "Select" icon, the simulator for the Kidnapped project will start and the Particle Filter informs it is connected `Connected!!!`.
+By clicking on "Select" button, the simulator for the Kidnapped project will start and the Particle Filter informs it is connected `Connected!!!`.
 
 <img src="./results/simulator_kidnapped_vehicle1.png" width="800" height="600" align="center"/>
 
+By clicking on "Start" button, the vehicle starts moving, and the blue circle (the filter calculated position) moves with it. After a while, the simulator informs you if your Particle Filter passed or failed. Here is an example of the filter passing the test:
+
+<img src="./results/simulator_final_result.png" width="800" height="600" align="center"/>
+
 
 ## Success Criteria
+
 The implemented particle filter passed the current grading code in the simulator and the simulator output says:
 
 ```
