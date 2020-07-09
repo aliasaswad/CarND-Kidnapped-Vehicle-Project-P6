@@ -1,3 +1,12 @@
+# Extended Kalman Filter Project
+
+<!-- Self-Driving Car Engineer Nanodegree Program -->
+
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+
+<img src="./results/particle_filter_result.gif" width="800" height="400" align="center"/>
+
+
 # Overview
 This repository contains all the code needed to complete the final project for the Localization course in Udacity's Self-Driving Car Nanodegree.
 
