@@ -125,8 +125,9 @@ The implemented particle filter passed the current grading code in the simulator
 
 ```
 Success! Your particle filter passed! according to:
+
 ```
-The particle filter implementation passed: 
+The particle filter implementation passed both: 
 
 1. **Accuracy**: The particle filter localize vehicle position and yaw to within the values specified in the parameters `max_translation_error` and `max_yaw_error` in `src/main.cpp`.
 
