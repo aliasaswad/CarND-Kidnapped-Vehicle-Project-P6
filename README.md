@@ -1,14 +1,14 @@
-# CarND-Kidnapped-Vehicle Project
+# CarND-Kidnapped-Vehicle-Project
 
 <!-- Self-Driving Car Engineer Nanodegree Program -->
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-<img src="./results/particle_filter_result.gif" width="800" height="400" align="center"/>
+<img src="./results/particle_filter_result1.gif" width="800" height="400" align="center"/>
 
 
 # Overview
-This repository contains all the code needed to complete the final project for the Localization course in Udacity's Self-Driving Car Nanodegree.
+This repository contains all the code for the kidnapped vehicle project. The project shows the implementation of a [Particle Filter](https://en.wikipedia.org/wiki/Particle_filter) that applied to a Kidnapped object (vehicle). Udacity provided a [simulator](https://github.com/udacity/self-driving-car-sim/releases) that used to simulate the needed environment. This simulator will generate noisy landmark observation from a car to the Particle Filter using [WebSocket](https://en.wikipedia.org/wiki/WebSocket). The Particle Filter uses the [uWebSockets](https://github.com/uNetworking/uWebSockets), WebSocket implementation to respond to this observation with the estimated car position. The actual project's repo provided by Udacity and could be found [here](https://github.com/udacity/CarND-Kidnapped-Vehicle-Project).
 
 #### Submission
 All you will need to submit is your `src` directory. You should probably do a `git pull` before submitting to verify that your project passes the most up-to-date version of the grading code (there are some parameters in `src/main.cpp` which govern the requirements on accuracy and run time).
