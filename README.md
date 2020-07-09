@@ -128,9 +128,9 @@ Success! Your particle filter passed! according to:
 ```
 The particle filter implementation passed: 
 
-1. **Accuracy**: the particle filter localize vehicle position and yaw to within the values specified in the parameters `max_translation_error` and `max_yaw_error` in `src/main.cpp`.
+1. **Accuracy**: The particle filter localize vehicle position and yaw to within the values specified in the parameters `max_translation_error` and `max_yaw_error` in `src/main.cpp`.
 
-2. **Performance**: the particle filter should complete execution within the time of 100 seconds.
+2. **Performance**: The particle filter should complete execution within the time of 100 seconds.
 
 
 ## How to write a README
