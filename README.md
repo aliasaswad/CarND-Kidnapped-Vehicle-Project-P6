@@ -68,13 +68,11 @@ root
     |   particle_filter.cpp
     |   particle_filter.h
 ```
-The Particle Filter is implemented in [src/particle_filter.cpp](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp). The **Initialization** part for the filter is implemented at `ParticleFilter::init` code_line [28 to 66](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp#L28-#L66). For the **Prediction**, the prediction step is implemented at `ParticleFilter::prediction` code_line [74-114](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp#L74-#L114). And for the **Weight's update**, this is the more important operation in my opinion. It is implemented at `ParticleFilter::updateWeights` code_line [149-223](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp#L149-#L223).
+The Particle Filter is implemented in [`src/particle_filter.cpp`](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp). The **Initialization** part for the filter is implemented at `ParticleFilter::init` code_line [28 to 66](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp#L28-#L66). For the **Prediction**, the prediction step is implemented at `ParticleFilter::prediction` code_line [74-114](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp#L74-#L114). And for the **Weight's update**, this is the more important operation in my opinion. It is implemented at `ParticleFilter::updateWeights` code_line [149-223](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/blob/master/src/particle_filter.cpp#L149-#L223).
 
-### Inputs to the Particle Filter
-You can find the inputs to the particle filter in the `data` directory.
+#### Inputs to the Particle Filter
+You can find the inputs to the particle filter in the [`data`](https://github.com/aliasaswad/CarND-Kidnapped-Vehicle-Project-P6/tree/master/data) directory. The Map file `map_data.txt` includes the position of landmarks (in meters) on an arbitrary Cartesian coordinate system. Each row has three columns:
 
-#### The Map*
-`map_data.txt` includes the position of landmarks (in meters) on an arbitrary Cartesian coordinate system. Each row has three columns
 1. x position
 2. y position
 3. landmark id
