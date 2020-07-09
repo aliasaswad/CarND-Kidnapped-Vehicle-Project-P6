@@ -106,15 +106,15 @@ To run the particle filter we need to run both `./run.sh` using the terminal and
 Which means that the implemtation code now connected to the simulator right away.
 Run the simulator shoud show the below image:
 
-<img src="./results/simulator_main.png" width="800" height="400" align="center"/>
+<img src="./results/simulator_main.png" width="800" height="600" align="center"/>
 
 Using the right arrow, to choose the Kidnapped Vehicle project as shown below:
 
-<img src="./results/simulator_kidnapped_vehicle.png" width="800" height="400" align="center"/>
+<img src="./results/simulator_kidnapped_vehicle.png" width="800" height="600" align="center"/>
 
 By clicking on "Select" icon, the simulator for the Kidnapped project will start and the Particle Filter informs it is connected `Connected!!!`.
 
-<img src="./results/simulator_kidnapped_vehicle1.png" width="800" height="400" align="center"/>
+<img src="./results/simulator_kidnapped_vehicle1.png" width="800" height="600" align="center"/>
 
 
 ## Success Criteria
